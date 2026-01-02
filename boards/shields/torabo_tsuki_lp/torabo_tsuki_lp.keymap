@@ -13,7 +13,9 @@
     zip_scroll_scaler: zip_scroll_scaler {
         compatible = "zmk,input-processor-scaler";
         #input-processor-cells = <2>;
-        type = "input-processor-scroll"; // スクロール信号として扱う指定
+        /* 文字列ではなく、数値（定数）で指定します */
+        type = <INPUT_EV_REL>;
+        usage = <INPUT_REL_WHEEL>;
     };
 
     /* リスナーの設定（直接定義） */
