@@ -15,6 +15,15 @@
         };
     };
 
+    behaviors {
+        /* 「sc」という名前のスクロール挙動を定義 */
+        sc: scroll_behavior {
+            compatible = "zmk,behavior-input-two-axis";
+            #binding-cells = <1>;
+            trigger-period-ms = <12>; // 数値を小さくするとスクロールが滑らかになる
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
