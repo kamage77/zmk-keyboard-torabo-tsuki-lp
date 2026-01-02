@@ -20,7 +20,14 @@
         sc: scroll_behavior {
             compatible = "zmk,behavior-input-two-axis";
             #binding-cells = <1>;
-            trigger-period-ms = <12>; // 数値を小さくするとスクロールが滑らかになる
+            trigger-period-ms = <12>;
+            /* X軸（水平）にマウスホイール横方向を割り当て */
+            x-input-code = <INPUT_REL_HWHEEL>;
+            /* Y軸（垂直）にマウスホイール縦方向を割り当て */
+            y-input-code = <INPUT_REL_WHEEL>;
+            /* スクロールの感度（必要に応じて数値を調整してください） */
+            time-to-max-speed-ms = <200>;
+            acceleration-exponent = <1>;
         };
     };
 
