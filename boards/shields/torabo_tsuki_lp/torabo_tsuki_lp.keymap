@@ -1,7 +1,6 @@
 
 #include "../../../config/keymap.keymap"
-
-#include <dt-bindings/zmk/input_processors.h>
+#include <input/processors.dtsi>
 
 &zip_temp_layer {
     status = "okay";
