@@ -2,13 +2,19 @@
 #include "../../../config/keymap.keymap"
 #include <input/processors.dtsi>
 
-&zip_temp_layer {
-    status = "okay";
-};
+/ {
+    /* オートマウスの機能を定義 */
+    zip_temp_layer: zip_temp_layer {
+        compatible = "zmk,input-processor-temp-layer";
+        #input-processor-cells = <2>;
+    };
 
-&trackball_split_listener {
-    status = "okay";
-    input-processors = 
-        <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
-        <&zip_temp_layer 1 1000>;
+    /* リスナーの設定（直接定義） */
+    trackball_listener {
+        compatible = "zmk,input-listener";
+        device = <&trackball_split>; // ここでエラーが出る場合は <&trackball> に変更
+        input-processors = 
+            <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
+            <&zip_temp_layer 1 1000>;
+    };
 };
