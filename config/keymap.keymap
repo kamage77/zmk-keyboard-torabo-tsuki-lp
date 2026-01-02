@@ -28,7 +28,6 @@
             /* スクロールの感度（必要に応じて数値を調整してください） */
             time-to-max-speed-ms = <200>;
             acceleration-exponent = <1>;
-            input-processors = <&zip_scroll_scaler 0 0>;
         };
     };
 
