@@ -9,12 +9,20 @@
         #input-processor-cells = <2>;
     };
 
+    /* スクロール変換用の定義（これが必要な場合があります） */
+    zip_scroll_scaler: zip_scroll_scaler {
+        compatible = "zmk,input-processor-scaler";
+        #input-processor-cells = <2>;
+        type = "input-processor-scroll"; // スクロール信号として扱う指定
+    };
+
     /* リスナーの設定（直接定義） */
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
         input-processors = 
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
-            <&zip_temp_layer 1 1000>;
+            <&zip_temp_layer 1 1000>,
+            <&zip_scroll_scaler 1 1>;
     };
 };
