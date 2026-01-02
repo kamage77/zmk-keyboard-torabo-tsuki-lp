@@ -1,3 +1,7 @@
+&zip_temp_layer {
+    status = "okay";
+};
+
 /{
     split_inputs {
         #address-cells = <1>;
