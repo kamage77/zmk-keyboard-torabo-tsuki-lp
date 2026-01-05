@@ -16,17 +16,13 @@
     };
 
     behaviors {
-        /* 「sc」という名前のスクロール挙動を定義 */
-        sc: scroll_behavior {
+        myms: my_mouse_scroll {
             compatible = "zmk,behavior-input-two-axis";
             #binding-cells = <1>;
             trigger-period-ms = <12>;
-            /* X軸（水平）にマウスホイール横方向を割り当て */
-            x-input-code = <INPUT_REL_HWHEEL>;
-            /* Y軸（垂直）にマウスホイール縦方向を割り当て */
-            y-input-code = <INPUT_REL_WHEEL>;
-            /* スクロールの感度（必要に応じて数値を調整してください） */
-            time-to-max-speed-ms = <200>;
+            x-input-code = <INPUT_REL_HWHEEL>;    /* X軸（水平）にマウスホイール横方向を割り当て */
+            y-input-code = <INPUT_REL_WHEEL>;    /* Y軸（垂直）にマウスホイール縦方向を割り当て */
+            time-to-max-speed-ms = <200>;        /* スクロールの感度（必要に応じて数値を調整してください） */
             acceleration-exponent = <1>;
         };
     };
@@ -48,7 +44,7 @@
             bindings = <
 &trans  &trans  &trans  &trans     &trans     &trans                    &trans  &trans     &trans     &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans     &trans                    &trans  &trans     &trans     &trans  &trans  &trans
-&trans  &trans  &trans  &mkp RCLK  &mkp LCLK  &sc 1     &trans  &trans  &trans  &mkp LCLK  &mkp RCLK  &trans  &trans  &trans
+&trans  &trans  &trans  &mkp RCLK  &mkp LCLK  &myms 1   &trans  &trans  &trans  &mkp LCLK  &mkp RCLK  &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans     &trans    &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans     &trans    &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans
             >;
