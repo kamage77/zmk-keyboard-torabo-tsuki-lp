@@ -16,8 +16,7 @@
     };
 
     behaviors {
-        /* 「sc」という名前のスクロール挙動を定義 */
-        sc: scroll_behavior {
+        myms: my_mouse_scroll {
             compatible = "zmk,behavior-input-two-axis";
             #binding-cells = <1>;
             trigger-period-ms = <12>;
@@ -29,7 +28,8 @@
             time-to-max-speed-ms = <200>;
             acceleration-exponent = <1>;
         };
-        my_ModTap: my_ModTap {
+
+        mymt: my_mod_tap {
             compatible = "zmk,behavior-mod-tap";
             #binding-cells = <2>;
             tapping-term-ms = <500>;    /* 長押し判定までの時間（お好みで調整） */
@@ -56,7 +56,7 @@
             bindings = <
 &trans  &trans  &trans  &trans     &trans     &trans                  &trans  &trans     &trans     &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans     &trans                  &trans  &trans     &trans     &trans  &trans  &trans
-&trans  &trans  &trans  &mkp RCLK  &mkp LCLK  &sc 1   &trans  &trans  &trans  &mkp LCLK  &mkp RCLK  &trans  &trans  &trans
+&trans  &trans  &trans  &mkp RCLK  &mkp LCLK  &myms 1 &trans  &trans  &trans  &mkp LCLK  &mkp RCLK  &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans
             >;
