@@ -54,7 +54,7 @@
 
         layer_1 {
             bindings = <
-&mymt LALT LEFT   &trans  &trans  &trans     &trans     &trans                   &trans  &trans     &trans     &trans  &trans  &trans
+&trans  &trans  &trans  &trans     &trans     &trans                   &trans  &trans     &trans     &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans     &trans                   &trans  &trans     &trans     &trans  &trans  &trans
 &trans  &trans  &trans  &mkp RCLK  &mkp LCLK  &myms 1  &trans  &trans  &trans  &mkp LCLK  &mkp RCLK  &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans     &trans   &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans
