@@ -18,16 +18,10 @@
     behaviors {
         my_ms: my_mouse_scroll {
             compatible = "zmk,behavior-input-two-axis";
-            #binding-cells = <0>;  /* 0 に変更 */
+            #binding-cells = <1>;
             
-            /* ここに直接レイヤー番号を固定で指定 */
             x-input-code = <INPUT_REL_HWHEEL>;
             y-input-code = <INPUT_REL_WHEEL>;
-            
-            /* もし使用している ZMK のバージョンで input-two-axis が 
-               レイヤー指定を直接持てない場合は、以下の行は削除してください */
-            // layer = <1>; 
-
             trigger-period-ms = <12>;
             time-to-max-speed-ms = <200>;
             acceleration-exponent = <1>;
@@ -61,7 +55,7 @@
             bindings = <
 &trans  &trans  &trans  &trans     &trans     &trans                    &trans  &trans     &trans     &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans     &trans                    &trans  &trans     &trans     &trans  &trans  &trans
-&trans  &trans  &trans  &mkp RCLK  &mkp LCLK  &trans    &trans  &trans  &trans  &mkp LCLK  &mkp RCLK  &trans  &trans  &trans
+&trans  &trans  &trans  &mkp RCLK  &mkp LCLK  &my_ms 1  &trans  &trans  &trans  &mkp LCLK  &mkp RCLK  &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans     &trans    &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans     &trans    &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans
             >;
