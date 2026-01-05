@@ -83,15 +83,3 @@
         };
     };
 };
-
-&zmk_studio {
-    __input-processors {
-        /* 自作した input-processor を Studio に認識させる（もしあれば） */
-    };
-
-    __behaviors {
-        /* ここに Studio で使いたい自作 Behavior を列挙します */
-        my_mouse_scroll;
-        my_mod_tap;
-    };
-};
