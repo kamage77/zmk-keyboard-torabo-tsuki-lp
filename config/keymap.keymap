@@ -26,7 +26,7 @@
             
             /* もし使用している ZMK のバージョンで input-two-axis が 
                レイヤー指定を直接持てない場合は、以下の行は削除してください */
-            // layer = <1>; 
+            layer = <1>; 
 
             trigger-period-ms = <12>;
             time-to-max-speed-ms = <200>;
@@ -61,7 +61,7 @@
             bindings = <
 &trans  &trans  &trans  &trans     &trans     &trans                    &trans  &trans     &trans     &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans     &trans                    &trans  &trans     &trans     &trans  &trans  &trans
-&trans  &trans  &trans  &mkp RCLK  &mkp LCLK  &my_ms_l1 &trans  &trans  &trans  &mkp LCLK  &mkp RCLK  &trans  &trans  &trans
+&trans  &trans  &trans  &mkp RCLK  &mkp LCLK  &trans    &trans  &trans  &trans  &mkp LCLK  &mkp RCLK  &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans     &trans    &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans     &trans    &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans
             >;
