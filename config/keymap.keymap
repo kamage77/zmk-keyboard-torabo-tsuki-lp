@@ -16,7 +16,7 @@
     };
 
     behaviors {
-        sc: my_mouse_scroll {
+        my_ms: my_mouse_scroll {
             compatible = "zmk,behavior-input-two-axis";
             #binding-cells = <1>;
             
@@ -26,16 +26,16 @@
             time-to-max-speed-ms = <200>;
             acceleration-exponent = <1>;
         };
-
+/*
         my_mt: my_mod_tap {
             compatible = "zmk,behavior-mod-tap";
             label = "myMod-Tap";
             #binding-cells = <2>;
-            tapping-term-ms = <500>;    /* 長押し判定までの時間（お好みで調整） */
-            quick-tap-ms = <200>;       /* 素早く2回叩いた時はタップを優先 */
-            flavor = "tap-preferred";   /* 迷ったらタップ（単押し）を優先する設定 */
+            tapping-term-ms = <500>;
+            quick-tap-ms = <200>;
+            flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
-        };
+        }; */
     };
 
     keymap {
@@ -55,7 +55,7 @@
             bindings = <
 &trans  &trans  &trans  &trans     &trans     &trans                    &trans  &trans     &trans     &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans     &trans                    &trans  &trans     &trans     &trans  &trans  &trans
-&trans  &trans  &trans  &mkp RCLK  &mkp LCLK  &sc 1     &trans  &trans  &trans  &mkp LCLK  &mkp RCLK  &trans  &trans  &trans
+&trans  &trans  &trans  &mkp RCLK  &mkp LCLK  &my_ms 1     &trans  &trans  &trans  &mkp LCLK  &mkp RCLK  &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans     &trans    &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans     &trans    &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans
             >;
