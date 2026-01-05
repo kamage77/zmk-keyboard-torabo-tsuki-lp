@@ -16,12 +16,6 @@
     };
 
     behaviors {
-        mt: mt {
-            tapping-term-ms = <500>;
-            quick-tap-ms = <200>;   // これも入れると連打が楽になります
-            flavor = "tap-preferred"; // 誤爆防止に推奨
-        };
-
         myms: my_mouse_scroll {
             compatible = "zmk,behavior-input-two-axis";
             #binding-cells = <1>;
@@ -31,6 +25,12 @@
             time-to-max-speed-ms = <200>;        /* スクロールの感度（必要に応じて数値を調整してください） */
             acceleration-exponent = <1>;
         };
+    };
+
+    &mt {
+        tapping-term-ms = <300>;
+        quick-tap-ms = <200>;
+        flavor = "tap-preferred";
     };
 
     keymap {
