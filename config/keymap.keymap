@@ -16,6 +16,10 @@
     };
 
     behaviors {
+        &mt {
+            tapping-term-ms = <500>; // ここを好きな数字（ミリ秒）に変える
+        };
+
         myms: my_mouse_scroll {
             compatible = "zmk,behavior-input-two-axis";
             #binding-cells = <1>;
