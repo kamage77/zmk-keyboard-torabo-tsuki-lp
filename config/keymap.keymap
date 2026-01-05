@@ -16,7 +16,7 @@
     };
 
     behaviors {
-        my_ms: my_mouse_scroll {
+        sc: my_mouse_scroll {
             compatible = "zmk,behavior-input-two-axis";
             #binding-cells = <1>;
             
@@ -55,7 +55,7 @@
             bindings = <
 &trans  &trans  &trans  &trans     &trans     &trans                    &trans  &trans     &trans     &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans     &trans                    &trans  &trans     &trans     &trans  &trans  &trans
-&trans  &trans  &trans  &mkp RCLK  &mkp LCLK  &my_ms 1  &trans  &trans  &trans  &mkp LCLK  &mkp RCLK  &trans  &trans  &trans
+&trans  &trans  &trans  &mkp RCLK  &mkp LCLK  &sc 1     &trans  &trans  &trans  &mkp LCLK  &mkp RCLK  &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans     &trans    &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans
 &trans  &trans  &trans  &trans     &trans     &trans    &trans  &trans  &trans  &trans     &trans     &trans  &trans  &trans
             >;
