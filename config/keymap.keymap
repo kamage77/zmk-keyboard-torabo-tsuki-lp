@@ -31,6 +31,7 @@
 
         mymt: my_mod_tap {
             compatible = "zmk,behavior-mod-tap";
+            label = "myMod-Tap";
             #binding-cells = <2>;
             tapping-term-ms = <500>;    /* 長押し判定までの時間（お好みで調整） */
             quick-tap-ms = <200>;       /* 素早く2回叩いた時はタップを優先 */
