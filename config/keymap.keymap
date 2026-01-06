@@ -16,13 +16,14 @@
     };
 
     behaviors {
-        my_mt: my_mt_node {
-            compatible = "zmk,behavior-mod-tap";
+        my_ht: my_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "MY_HOLD_TAP";
             #binding-cells = <2>;
-            tapping-term-ms = <500>;
+            tapping-term-ms = <400>;
             quick-tap-ms = <200>;
             flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
+            bindings = <&kp>, <&kp>; 
         };
 
         myms: my_mouse_scroll {
