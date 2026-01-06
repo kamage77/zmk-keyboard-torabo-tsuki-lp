@@ -26,7 +26,7 @@
             bindings = <&kp>, <&kp>; 
         };
 
-        scroll_mo: my_scroll_momentary {
+        my_mo: my_scroll_momentary {
             compatible = "zmk,behavior-hold-tap";
             label = "my_scroll_momentary";
             #binding-cells = <2>;
