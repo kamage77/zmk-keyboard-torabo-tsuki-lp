@@ -26,6 +26,16 @@
             bindings = <&kp>, <&kp>; 
         };
 
+        my_lt: my_layer_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "my_layer_tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <400>;             /* ここで時間を自由に調整（例：200ms） */
+            quick-tap-ms = <200>;
+            flavor = "tap-preferred";
+            bindings = <&mo>, <&kp>;            /* 1つ目の引数にレイヤー(&mo)、2つ目にキー入力(&kp)を指定 */
+        };
+
         my_mo: my_scroll_momentary {
             compatible = "zmk,behavior-hold-tap";
             label = "my_scroll_momentary";
