@@ -48,6 +48,15 @@
 
             /* 1つ目の引数にレイヤー(mo)、2つ目に何もしない(none)を指定 */
         };
+
+        my_bt: my_bt_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "my_bluetooth_tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <2000>; // 誤操作防止のため長押しは長め（2秒）がおすすめ
+            bindings = <&bt>, <&bt>;  // 1つ目が Hold（長押し）、2つ目が Tap（単押し）の動作になります
+        };
     };
 
     keymap {
