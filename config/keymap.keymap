@@ -17,20 +17,20 @@
 
     macros {
         // Bluetooth 0番
-        bt_sel0: bt_sel0 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 0>; };
-        bt_clr0: bt_clr0 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 0>, <&bt BT_CLR>; };
+        m_bt_sel_0: m_bt_sel_0 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 0>; };
+        m_bt_clr_0: m_bt_clr_0 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 0>, <&bt BT_CLR>; };
         // Bluetooth 1番
-        bt_sel1: bt_sel1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 1>; };
-        bt_clr1: bt_clr1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 1>, <&bt BT_CLR>; };
+        m_bt_sel_1: m_bt_sel_1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 1>; };
+        m_bt_clr_1: m_bt_clr_1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 1>, <&bt BT_CLR>; };
         // Bluetooth 2番
-        bt_sel2: bt_sel2 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 2>; };
-        bt_clr2: bt_clr2 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 2>, <&bt BT_CLR>; };
+        m_bt_sel_2: m_bt_sel_2 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 2>; };
+        m_bt_clr_2: m_bt_clr_2 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 2>, <&bt BT_CLR>; };
         // Bluetooth 3番
-        bt_sel3: bt_sel3 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 3>; };
-        bt_clr3: bt_clr3 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 3>, <&bt BT_CLR>; };
+        m_bt_sel_3: m_bt_sel_3 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 3>; };
+        m_bt_clr_3: m_bt_clr_3 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 3>, <&bt BT_CLR>; };
         // Bluetooth 4番
-        bt_sel4: bt_sel4 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 4>; };
-        bt_clr4: bt_clr4 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 4>, <&bt BT_CLR>; };
+        m_bt_sel_4: m_bt_sel_4 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 4>; };
+        m_bt_clr_4: m_bt_clr_4 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 4>, <&bt BT_CLR>; };
     };
 
     behaviors {
@@ -67,13 +67,37 @@
             /* 1つ目の引数にレイヤー(mo)、2つ目に何もしない(none)を指定 */
         };
 
-        my_bt_tap: my_bt_tap {
+        my_bt_tap_1: my_bt_tap_1 {
             compatible = "zmk,behavior-hold-tap";
-            label = "my_bluetooth_tap";
+            label = "my_bluetooth_tap_1";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <2000>;
-            bindings = <&any>, <&any>;
+            bindings = <&m_bt_clr_1>, <&m_bt_sel_1>;
+        };
+        my_bt_tap_2: my_bt_tap_2 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "my_bluetooth_tap_2";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <2000>;
+            bindings = <&m_bt_clr_1>, <&m_bt_sel_1>;
+        };
+        my_bt_tap_3: my_bt_tap_3 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "my_bluetooth_tap_3";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <2000>;
+            bindings = <&m_bt_clr_1>, <&m_bt_sel_1>;
+        };
+        my_bt_tap_4: my_bt_tap_4 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "my_bluetooth_tap_4";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <2000>;
+            bindings = <&m_bt_clr_1>, <&m_bt_sel_1>;
         };
     };
 
