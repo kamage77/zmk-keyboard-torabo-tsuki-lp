@@ -16,18 +16,21 @@
     };
 
     macros {
-        // BT_CLR を実行するだけのマクロ
-        m_bt_clr: m_bt_clr {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&bt BT_CLR>;
-        };
-        // BT_SEL 0 を実行するだけのマクロ
-        m_bt_sel_0: m_bt_sel_0 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&bt BT_SEL 0>;
-        };
+        // Bluetooth 0番
+        bt_sel0: bt_sel0 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 0>; };
+        bt_clr0: bt_clr0 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 0>, <&bt BT_CLR>; };
+        // Bluetooth 1番
+        bt_sel1: bt_sel1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 1>; };
+        bt_clr1: bt_clr1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 1>, <&bt BT_CLR>; };
+        // Bluetooth 2番
+        bt_sel2: bt_sel2 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 2>; };
+        bt_clr2: bt_clr2 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 2>, <&bt BT_CLR>; };
+        // Bluetooth 3番
+        bt_sel3: bt_sel3 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 3>; };
+        bt_clr3: bt_clr3 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 3>, <&bt BT_CLR>; };
+        // Bluetooth 4番
+        bt_sel4: bt_sel4 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 4>; };
+        bt_clr4: bt_clr4 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 4>, <&bt BT_CLR>; };
     };
 
     behaviors {
@@ -70,8 +73,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <2000>;
-            // 引数を受け取らず、固定のマクロを呼び出す形に変更
-            bindings = <&m_bt_clr>, <&m_bt_sel_0>;
+            bindings = <&any>, <&any>;
         };
     };
 
