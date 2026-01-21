@@ -15,6 +15,21 @@
         };
     };
 
+    macros {
+        // BT_CLR を実行するだけのマクロ
+        m_bt_clr: m_bt_clr {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_CLR>;
+        };
+        // BT_SEL 0 を実行するだけのマクロ
+        m_bt_sel_0: m_bt_sel_0 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0>;
+        };
+    };
+
     behaviors {
         my_ht: my_hold_tap {
             compatible = "zmk,behavior-hold-tap";
@@ -49,13 +64,14 @@
             /* 1つ目の引数にレイヤー(mo)、2つ目に何もしない(none)を指定 */
         };
 
-        my_bt: my_bt_tap {
+        my_bt_tap: my_bt_tap {
             compatible = "zmk,behavior-hold-tap";
             label = "my_bluetooth_tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
-            tapping-term-ms = <2000>; // 誤操作防止のため長押しは長め（2秒）がおすすめ
-            bindings = <&bt>, <&bt>;  // 1つ目が Hold（長押し）、2つ目が Tap（単押し）の動作になります
+            tapping-term-ms = <2000>;
+            // 引数を受け取らず、固定のマクロを呼び出す形に変更
+            bindings = <&m_bt_clr>, <&m_bt_sel_0>;
         };
     };
 
