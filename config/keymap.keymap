@@ -67,6 +67,14 @@
             /* 1つ目の引数にレイヤー(mo)、2つ目に何もしない(none)を指定 */
         };
 
+        my_bt_tap_0: my_bt_tap_0 {
+            compatible = "zmk,behavior-hold-tap";
+            label = "my_bluetooth_tap_0";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <2000>;
+            bindings = <&m_bt_clr_0>, <&m_bt_sel_0>;
+        };
         my_bt_tap_1: my_bt_tap_1 {
             compatible = "zmk,behavior-hold-tap";
             label = "my_bluetooth_tap_1";
@@ -81,7 +89,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <2000>;
-            bindings = <&m_bt_clr_1>, <&m_bt_sel_1>;
+            bindings = <&m_bt_clr_2>, <&m_bt_sel_2>;
         };
         my_bt_tap_3: my_bt_tap_3 {
             compatible = "zmk,behavior-hold-tap";
@@ -89,7 +97,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <2000>;
-            bindings = <&m_bt_clr_1>, <&m_bt_sel_1>;
+            bindings = <&m_bt_clr_3>, <&m_bt_sel_3>;
         };
         my_bt_tap_4: my_bt_tap_4 {
             compatible = "zmk,behavior-hold-tap";
@@ -97,7 +105,7 @@
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <2000>;
-            bindings = <&m_bt_clr_1>, <&m_bt_sel_1>;
+            bindings = <&m_bt_clr_4>, <&m_bt_sel_4>;
         };
     };
 
