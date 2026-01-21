@@ -72,15 +72,6 @@
             tapping-term-ms = <2000>;
             bindings = <&m_bt_clr>, <&m_bt_sel_0>;
         };
-        my_bt_tap: my_bt_tap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "my_bluetooth_tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <2000>;
-            bindings = <&none>, <&none>;
-        };
-/*
         my_bt_tap_1: my_bt_tap_1 {
             compatible = "zmk,behavior-hold-tap";
             label = "my_bluetooth_tap_1";
@@ -113,7 +104,6 @@
             tapping-term-ms = <2000>;
             bindings = <&m_bt_clr>, <&m_bt_sel_4>;
         };
-*/
     };
 
     keymap {
