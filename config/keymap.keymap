@@ -20,6 +20,7 @@
 
         // Bluetooth 0番
         m_bt_sel_0: m_bt_sel_0 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 0>; };
+/*
         // Bluetooth 1番
         m_bt_sel_1: m_bt_sel_1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 1>; };
         // Bluetooth 2番
@@ -28,6 +29,7 @@
         m_bt_sel_3: m_bt_sel_3 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 3>; };
         // Bluetooth 4番
         m_bt_sel_4: m_bt_sel_4 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 4>; };
+*/
     };
 
     behaviors {
@@ -72,6 +74,7 @@
             tapping-term-ms = <2000>;
             bindings = <&m_bt_clr>, <&m_bt_sel_0>;
         };
+/*
         my_bt_tap_1: my_bt_tap_1 {
             compatible = "zmk,behavior-hold-tap";
             label = "my_bluetooth_tap_1";
@@ -104,6 +107,7 @@
             tapping-term-ms = <2000>;
             bindings = <&m_bt_clr>, <&m_bt_sel_4>;
         };
+*/
     };
 
     keymap {
