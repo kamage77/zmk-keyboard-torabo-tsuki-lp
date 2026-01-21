@@ -74,7 +74,7 @@
         };
         my_bt_tap: my_bt_tap {
             compatible = "zmk,behavior-hold-tap";
-            label = "my_bluetooth_tap_0";
+            label = "my_bluetooth_tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <2000>;
