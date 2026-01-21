@@ -80,7 +80,6 @@
             tapping-term-ms = <2000>;
             bindings = <&m_bt_clr>, <&m_bt_sel_1>;
         };
-/*
         my_bt_tap_2: my_bt_tap_2 {
             compatible = "zmk,behavior-hold-tap";
             label = "my_bluetooth_tap_2";
@@ -89,6 +88,7 @@
             tapping-term-ms = <2000>;
             bindings = <&m_bt_clr>, <&m_bt_sel_2>;
         };
+/*
         my_bt_tap_3: my_bt_tap_3 {
             compatible = "zmk,behavior-hold-tap";
             label = "my_bluetooth_tap_3";
