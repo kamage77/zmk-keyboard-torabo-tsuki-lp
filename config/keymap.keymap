@@ -62,7 +62,7 @@
             /* 1つ目の引数にレイヤー(mo)、2つ目に何もしない(none)を指定 */
         };
 
-h        t_bt0: ht_bt0 {
+        t_bt0: ht_bt0 {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <0>;
             flavor = "tap-preferred";
