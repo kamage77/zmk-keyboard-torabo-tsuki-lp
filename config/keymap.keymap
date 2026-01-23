@@ -111,35 +111,35 @@
         m_bt0: m_bt0 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt_ht_core BT_CLR BT_SEL 0>;
+            bindings = <&my_bt_tap BT_CLR BT_SEL 0>;
         };
 
         // 【1番用】
         m_bt1: m_bt1 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt_ht_core BT_CLR BT_SEL 1>;
+            bindings = <&my_bt_tap BT_CLR BT_SEL 1>;
         };
          
         // 【2番用】
         m_bt2: m_bt2 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt_ht_core BT_CLR BT_SEL 2>;
+            bindings = <&my_bt_tap BT_CLR BT_SEL 2>;
         };
         
         // 【3番用】
         m_bt3: m_bt3 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt_ht_core BT_CLR BT_SEL 3>;
+            bindings = <&my_bt_tap BT_CLR BT_SEL 3>;
         };
 
         // 【4番用】
         m_bt4: m_bt4 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt_ht_core BT_CLR BT_SEL 4>;
+            bindings = <&my_bt_tap BT_CLR BT_SEL 4>;
         };
     };
 
