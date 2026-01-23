@@ -16,18 +16,51 @@
     };
 
     macros {
-        m_bt_clr: m_bt_clr { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_CLR>; };
+        m_bt_clr: m_bt_clr {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_CLR>;
+        };
 
         // Bluetooth 0番
-        m_bt_sel_0: m_bt_sel_0 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 0>; };
+
+        m_bt_sel_0: m_bt_sel_0 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0>;
+        };
+
         // Bluetooth 1番
-        m_bt_sel_1: m_bt_sel_1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 1>; };
+
+        m_bt_sel_1: m_bt_sel_1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1>;
+        };
+
         // Bluetooth 2番
-        m_bt_sel_2: m_bt_sel_2 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 2>; };
+
+        m_bt_sel_2: m_bt_sel_2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 2>;
+        };
+
         // Bluetooth 3番
-        m_bt_sel_3: m_bt_sel_3 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 3>; };
+
+        m_bt_sel_3: m_bt_sel_3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 3>;
+        };
+
         // Bluetooth 4番
-        m_bt_sel_4: m_bt_sel_4 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 4>; };
+
+        m_bt_sel_4: m_bt_sel_4 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 4>;
+        };
     };
 
     behaviors {
@@ -72,6 +105,7 @@
             tapping-term-ms = <2000>;
             bindings = <&m_bt_clr>, <&m_bt_sel_0>;
         };
+
         my_bt_tap_1: my_bt_tap_1 {
             compatible = "zmk,behavior-hold-tap";
             label = "my_bluetooth_tap_1";
@@ -80,6 +114,7 @@
             tapping-term-ms = <2000>;
             bindings = <&m_bt_clr>, <&m_bt_sel_1>;
         };
+
         my_bt_tap_2: my_bt_tap_2 {
             compatible = "zmk,behavior-hold-tap";
             label = "my_bluetooth_tap_2";
@@ -105,11 +140,11 @@
 
         layer_1 {
             bindings = <
-&trans  &trans            &trans            &trans            &trans            &trans                            &trans          &trans        &trans          &trans           &trans           &trans
-&trans  &trans            &trans            &trans            &trans            &trans                            &trans          &trans        &trans          &trans           &trans           &trans
-&trans  &trans            &trans            &mkp RCLK         &mkp LCLK         &trans            &trans  &trans  &trans          &mkp LCLK     &mkp RCLK       &trans           &trans           &trans
-&trans  &kp LEFT_ALT      &trans            &trans            &trans            &trans            &trans  &trans  &kp LEFT_ARROW  &kp UP_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp RIGHT_ALT    &trans
-&trans  &kp LEFT_SHIFT    &trans            &trans            &trans            &trans            &trans  &trans  &trans          &trans        &trans          &trans           &kp RIGHT_SHIFT  &trans
+&trans  &trans            &trans            &trans            &trans     &trans                  &trans          &trans        &trans          &trans           &trans           &trans
+&trans  &my_bt_tap_0 0 0  &my_bt_tap_1 0 0  &my_bt_tap_2 0 0  &trans     &trans                  &trans          &trans        &trans          &trans           &trans           &trans
+&trans  &trans            &trans            &mkp RCLK         &mkp LCLK  &trans  &trans  &trans  &trans          &mkp LCLK     &mkp RCLK       &trans           &trans           &trans
+&trans  &kp LEFT_ALT      &trans            &trans            &trans     &trans  &trans  &trans  &kp LEFT_ARROW  &kp UP_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp RIGHT_ALT    &trans
+&trans  &kp LEFT_SHIFT    &trans            &trans            &trans     &trans  &trans  &trans  &trans          &trans        &trans          &trans           &kp RIGHT_SHIFT  &trans
             >;
         };
 
