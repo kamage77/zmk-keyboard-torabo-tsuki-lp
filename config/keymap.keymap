@@ -16,12 +16,18 @@
     };
 
     macros {
-        // 1. 【最優先】BT操作の最小単位を定義（これで &bt のエラーを回避）
-        m_clr_0: m_clr_0 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 0>, <&bt BT_CLR>; };
-        m_sel_0: m_sel_0 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 0>; };
-        
-        m_clr_1: m_clr_1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 1>, <&bt BT_CLR>; };
-        m_sel_1: m_sel_1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 1>; };
+        m_bt_clr: m_bt_clr { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_CLR>; };
+
+        // Bluetooth 0番
+        m_bt_sel_0: m_bt_sel_0 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 0>; };
+        // Bluetooth 1番
+        m_bt_sel_1: m_bt_sel_1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 1>; };
+        // Bluetooth 2番
+        m_bt_sel_2: m_bt_sel_2 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 2>; };
+        // Bluetooth 3番
+        m_bt_sel_3: m_bt_sel_3 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 3>; };
+        // Bluetooth 4番
+        m_bt_sel_4: m_bt_sel_4 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 4>; };
     };
 
     behaviors {
@@ -58,38 +64,30 @@
             /* 1つ目の引数にレイヤー(mo)、2つ目に何もしない(none)を指定 */
         };
 
-        t_bt0: ht_bt0 {
+        my_bt_tap_0: my_bt_tap_0 {
+            my_bt_tap_0: my_bt_tap_0 {
             compatible = "zmk,behavior-hold-tap";
-            label = "my_bluetooth_hold_tap_0";
-            #binding-cells = <0>;
+            label = "my_bluetooth_tap_0";
+            #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <2000>;
-            bindings = <&m_clr_0>, <&m_sel_0>;
+            bindings = <&m_bt_clr>, <&m_bt_sel_0>;
         };
-
-        ht_bt1: ht_bt1 {
+        my_bt_tap_1: my_bt_tap_1 {
             compatible = "zmk,behavior-hold-tap";
-            label = "my_bluetooth_hold_tap_1";
-            #binding-cells = <0>;
+            label = "my_bluetooth_tap_1";
+            #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <2000>;
-            bindings = <&m_clr_1>, <&m_sel_1>;
+            bindings = <&m_bt_clr>, <&m_bt_sel_1>;
         };
-
-        bt0: bt0 {
+        my_bt_tap_2: my_bt_tap_2 {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
+            label = "my_bluetooth_tap_2";
+            #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <2000>;
-            bindings = <&m_clr_0>, <&m_sel_0>;
-        };
-
-        bt1: bt1 {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <2000>;
-            bindings = <&m_clr_1>, <&m_sel_1>;
+            bindings = <&m_bt_clr>, <&m_bt_sel_2>;
         };
     };
 
