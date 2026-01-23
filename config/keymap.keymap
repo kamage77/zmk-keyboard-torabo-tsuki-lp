@@ -15,49 +15,6 @@
         };
     };
 
-    macros {
-        m_bt_clr: m_bt_clr {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&bt BT_CLR>;
-        };
-
-        // Bluetooth 0番
-        m_bt_sel_0: m_bt_sel_0 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&bt BT_SEL 0>;
-        };
-
-        // Bluetooth 1番
-        m_bt_sel_1: m_bt_sel_1 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&bt BT_SEL 1>;
-        };
-
-        // Bluetooth 2番
-        m_bt_sel_2: m_bt_sel_2 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&bt BT_SEL 2>;
-        };
-
-        // Bluetooth 3番
-        m_bt_sel_3: m_bt_sel_3 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&bt BT_SEL 3>;
-        };
-
-        // Bluetooth 4番
-        m_bt_sel_4: m_bt_sel_4 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&bt BT_SEL 4>;
-        };
-    };
-
     behaviors {
         my_ht: my_hold_tap {
             compatible = "zmk,behavior-hold-tap";
@@ -92,6 +49,16 @@
             /* 1つ目の引数にレイヤー(mo)、2つ目に何もしない(none)を指定 */
         };
 
+        my_bt_tap: my_bt_tap {
+            compatible = "zmk,behavior-hold-tap";
+            label = "my_bluetooth_tap_0";
+            #binding-cells = <0>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <2000>;
+            bindings = <&bt>, <&bt>;
+        };
+
+/*
         my_bt_tap_0: my_bt_tap_0 {
             compatible = "zmk,behavior-hold-tap";
             label = "my_bluetooth_tap_0";
@@ -135,6 +102,44 @@
             flavor = "tap-preferred";
             tapping-term-ms = <2000>;
             bindings = <&m_bt_clr>, <&m_bt_sel_4>;
+        };
+*/
+    };
+
+    macros {
+        // 【0番用】
+        m_bt0: m_bt0 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt_ht_core BT_CLR BT_SEL 0>;
+        };
+
+        // 【1番用】
+        m_bt1: m_bt1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt_ht_core BT_CLR BT_SEL 1>;
+        };
+         
+        // 【2番用】
+        m_bt2: m_bt2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt_ht_core BT_CLR BT_SEL 2>;
+        };
+        
+        // 【3番用】
+        m_bt3: m_bt3 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt_ht_core BT_CLR BT_SEL 3>;
+        };
+
+        // 【4番用】
+        m_bt4: m_bt4 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt_ht_core BT_CLR BT_SEL 4>;
         };
     };
 
