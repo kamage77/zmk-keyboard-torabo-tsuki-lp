@@ -15,6 +15,28 @@
         };
     };
 
+    macros {
+        // --- 内部用マクロ (Studioで触る必要はありません) ---
+        // 0番用
+        m0_sel_inner: m0_sel_inner { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 0>; };
+        m0_clr_inner: m0_clr_inner { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 0>, <&bt BT_CLR>; };
+        // 1番用
+        m1_sel_inner: m1_sel_inner { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 1>; };
+        m1_clr_inner: m1_clr_inner { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 1>, <&bt BT_CLR>; };
+
+        // --- ZMK Studioで実際にキーに割り当てるマクロ (cells=0) ---
+        BT0: BT0 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt_ht_0>; // 下で定義する専用Hold-tapを呼び出す
+        };
+        BT1: BT1 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt_ht_1>;
+        };
+    };
+
     behaviors {
         my_ht: my_hold_tap {
             compatible = "zmk,behavior-hold-tap";
@@ -49,97 +71,19 @@
             /* 1つ目の引数にレイヤー(mo)、2つ目に何もしない(none)を指定 */
         };
 
-        my_bt_tap: my_bt_tap {
+        bt_ht_0: bt_ht_0 {
             compatible = "zmk,behavior-hold-tap";
-            label = "my_bluetooth_tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <2000>;
-            bindings = <&bt>, <&bt>;
-        };
-
-/*
-        my_bt_tap_0: my_bt_tap_0 {
-            compatible = "zmk,behavior-hold-tap";
-            label = "my_bluetooth_tap_0";
             #binding-cells = <0>;
             flavor = "tap-preferred";
             tapping-term-ms = <2000>;
-            bindings = <&m_bt_clr>, <&m_bt_sel_0>;
+            bindings = <&m0_clr_inner>, <&m0_sel_inner>;
         };
-
-        my_bt_tap_1: my_bt_tap_1 {
+        bt_ht_1: bt_ht_1 {
             compatible = "zmk,behavior-hold-tap";
-            label = "my_bluetooth_tap_1";
             #binding-cells = <0>;
             flavor = "tap-preferred";
             tapping-term-ms = <2000>;
-            bindings = <&m_bt_clr>, <&m_bt_sel_1>;
-        };
-
-        my_bt_tap_2: my_bt_tap_2 {
-            compatible = "zmk,behavior-hold-tap";
-            label = "my_bluetooth_tap_2";
-            #binding-cells = <0>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <2000>;
-            bindings = <&m_bt_clr>, <&m_bt_sel_2>;
-        };
-
-        my_bt_tap_3: my_bt_tap_3 {
-            compatible = "zmk,behavior-hold-tap";
-            label = "my_bluetooth_tap_3";
-            #binding-cells = <0>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <2000>;
-            bindings = <&m_bt_clr>, <&m_bt_sel_3>;
-        };
-
-        my_bt_tap_4: my_bt_tap_4 {
-            compatible = "zmk,behavior-hold-tap";
-            label = "my_bluetooth_tap_4";
-            #binding-cells = <0>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <2000>;
-            bindings = <&m_bt_clr>, <&m_bt_sel_4>;
-        };
-*/
-    };
-
-    macros {
-        // 【0番用】
-        m_bt0: m_bt0 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&my_bt_tap BT_CLR BT_SEL 0>;
-        };
-
-        // 【1番用】
-        m_bt1: m_bt1 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&my_bt_tap BT_CLR BT_SEL 1>;
-        };
-         
-        // 【2番用】
-        m_bt2: m_bt2 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&my_bt_tap BT_CLR BT_SEL 2>;
-        };
-        
-        // 【3番用】
-        m_bt3: m_bt3 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&my_bt_tap BT_CLR BT_SEL 3>;
-        };
-
-        // 【4番用】
-        m_bt4: m_bt4 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&my_bt_tap BT_CLR BT_SEL 4>;
+            bindings = <&m1_clr_inner>, <&m1_sel_inner>;
         };
     };
 
