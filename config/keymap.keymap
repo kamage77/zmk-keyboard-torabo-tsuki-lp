@@ -15,14 +15,6 @@
         };
     };
 
-    macros {
-        m0_sel: m0_sel { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 0>; };
-        m0_clr: m0_clr { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 0>, <&bt BT_CLR>; };
-        
-        m1_sel: m1_sel { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 1>; };
-        m1_clr: m1_clr { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 1>, <&bt BT_CLR>; };
-    };
-
     behaviors {
         my_ht: my_hold_tap {
             compatible = "zmk,behavior-hold-tap";
@@ -57,20 +49,34 @@
             /* 1つ目の引数にレイヤー(mo)、2つ目に何もしない(none)を指定 */
         };
 
-        bt0: bt0 {
+        bt_ht: bt_ht {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <0>; // 重要：0に設定
+            #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <2000>;
-            bindings = <&m0_clr>, <&m0_sel>;
+            bindings = <&bt>, <&bt>;
+        };
+    };
+
+    macros {
+        // --- ZMK Studioで実際にキーに割り当てる「完成済み」ボタン ---
+        // bindings の中身で &bt_ht に対して引数（BT_CLR と BT_SEL 0）を渡しておくのがコツです
+        BT0: BT0 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt_ht BT_CLR BT_SEL 0>;
         };
 
-        bt1: bt1 {
-            compatible = "zmk,behavior-hold-tap";
+        BT1: BT1 {
+            compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <2000>;
-            bindings = <&m1_clr>, <&m1_sel>;
+            bindings = <&bt_ht BT_CLR BT_SEL 1>;
+        };
+
+        BT2: BT2 {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt_ht BT_CLR BT_SEL 2>;
         };
     };
 
