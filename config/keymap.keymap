@@ -65,7 +65,6 @@
         };
 
         my_bt_tap_0: my_bt_tap_0 {
-            my_bt_tap_0: my_bt_tap_0 {
             compatible = "zmk,behavior-hold-tap";
             label = "my_bluetooth_tap_0";
             #binding-cells = <2>;
