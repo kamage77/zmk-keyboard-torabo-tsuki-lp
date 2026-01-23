@@ -16,12 +16,6 @@
     };
 
     macros {
-        m_dummy: m_dummy {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&none>;
-        };
-
         m_bt_clr: m_bt_clr {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -98,19 +92,10 @@
             /* 1つ目の引数にレイヤー(mo)、2つ目に何もしない(none)を指定 */
         };
 
-        my_bt_tap: my_bt_tap {
-            compatible = "zmk,behavior-hold-tap";
-            label = "my_bluetooth_tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <2000>;
-            bindings = <&m_dummy>, <&m_dummy>;
-        };
-/*
         my_bt_tap_0: my_bt_tap_0 {
             compatible = "zmk,behavior-hold-tap";
             label = "my_bluetooth_tap_0";
-            #binding-cells = <2>;
+            #binding-cells = <0>;
             flavor = "tap-preferred";
             tapping-term-ms = <2000>;
             bindings = <&m_bt_clr>, <&m_bt_sel_0>;
@@ -119,7 +104,7 @@
         my_bt_tap_1: my_bt_tap_1 {
             compatible = "zmk,behavior-hold-tap";
             label = "my_bluetooth_tap_1";
-            #binding-cells = <2>;
+            #binding-cells = <0>;
             flavor = "tap-preferred";
             tapping-term-ms = <2000>;
             bindings = <&m_bt_clr>, <&m_bt_sel_1>;
@@ -128,7 +113,7 @@
         my_bt_tap_2: my_bt_tap_2 {
             compatible = "zmk,behavior-hold-tap";
             label = "my_bluetooth_tap_2";
-            #binding-cells = <2>;
+            #binding-cells = <0>;
             flavor = "tap-preferred";
             tapping-term-ms = <2000>;
             bindings = <&m_bt_clr>, <&m_bt_sel_2>;
@@ -137,7 +122,7 @@
         my_bt_tap_3: my_bt_tap_3 {
             compatible = "zmk,behavior-hold-tap";
             label = "my_bluetooth_tap_3";
-            #binding-cells = <2>;
+            #binding-cells = <0>;
             flavor = "tap-preferred";
             tapping-term-ms = <2000>;
             bindings = <&m_bt_clr>, <&m_bt_sel_3>;
@@ -146,12 +131,11 @@
         my_bt_tap_4: my_bt_tap_4 {
             compatible = "zmk,behavior-hold-tap";
             label = "my_bluetooth_tap_4";
-            #binding-cells = <2>;
+            #binding-cells = <0>;
             flavor = "tap-preferred";
             tapping-term-ms = <2000>;
             bindings = <&m_bt_clr>, <&m_bt_sel_4>;
         };
-*/
     };
 
     keymap {
