@@ -74,15 +74,16 @@
         bt_ht_0: bt_ht_0 {
             compatible = "zmk,behavior-hold-tap";
             label = "my_bluetooth_hold_tap_0";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <2000>;
             bindings = <&m0_clr_inner>, <&m0_sel_inner>;
         };
+
         bt_ht_1: bt_ht_1 {
             compatible = "zmk,behavior-hold-tap";
             label = "my_bluetooth_hold_tap_1";
-            #binding-cells = <0>;
+            #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <2000>;
             bindings = <&m1_clr_inner>, <&m1_sel_inner>;
