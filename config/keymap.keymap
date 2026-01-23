@@ -15,6 +15,19 @@
         };
     };
 
+    macros {
+        // 1. BT操作を個別に「引数なしマクロ」にする (これで &bt のエラーを回避)
+        m_clr_0: m_clr_0 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 0>, <&bt BT_CLR>; };
+        m_sel_0: m_sel_0 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 0>; };
+        
+        m_clr_1: m_clr_1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 1>, <&bt BT_CLR>; };
+        m_sel_1: m_sel_1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&bt BT_SEL 1>; };
+
+        // 3. ZMK Studioで実際に使うボタン (引数なしマクロ)
+        BT0: BT0 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&ht_bt0>; };
+        BT1: BT1 { compatible = "zmk,behavior-macro"; #binding-cells = <0>; bindings = <&ht_bt1>; };
+    };
+
     behaviors {
         my_ht: my_hold_tap {
             compatible = "zmk,behavior-hold-tap";
@@ -49,34 +62,19 @@
             /* 1つ目の引数にレイヤー(mo)、2つ目に何もしない(none)を指定 */
         };
 
-        bt_ht: bt_ht {
+h        t_bt0: ht_bt0 {
             compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+            #binding-cells = <0>;
             flavor = "tap-preferred";
             tapping-term-ms = <2000>;
-            bindings = <&bt>, <&bt>;
+            bindings = <&m_clr_0>, <&m_sel_0>;
         };
-    };
-
-    macros {
-        // --- ZMK Studioで実際にキーに割り当てる「完成済み」ボタン ---
-        // bindings の中身で &bt_ht に対して引数（BT_CLR と BT_SEL 0）を渡しておくのがコツです
-        BT0: BT0 {
-            compatible = "zmk,behavior-macro";
+        ht_bt1: ht_bt1 {
+            compatible = "zmk,behavior-hold-tap";
             #binding-cells = <0>;
-            bindings = <&bt_ht BT_CLR BT_SEL 0>;
-        };
-
-        BT1: BT1 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&bt_ht BT_CLR BT_SEL 1>;
-        };
-
-        BT2: BT2 {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&bt_ht BT_CLR BT_SEL 2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <2000>;
+            bindings = <&m_clr_1>, <&m_sel_1>;
         };
     };
 
