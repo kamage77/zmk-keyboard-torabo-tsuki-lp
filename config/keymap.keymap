@@ -95,8 +95,8 @@
             codes = <INPUT_REL_X INPUT_REL_Y>;
             type = <INPUT_REL_WHEEL>;
             // ここの数値を大きくすると速くなり、小さくすると遅くなります
-            multiplier = <1>; 
-            divider = <2>;    // 2で割る（＝半分の速度にする）
+            mul = <1>; 
+            div = <2>;   // 2で割る（＝半分の速度にする）
         };
 
         my_bt_tap_0: my_bt_tap_0 {
