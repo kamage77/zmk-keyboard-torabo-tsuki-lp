@@ -22,8 +22,7 @@
             bindings = <&bt BT_CLR>;
         };
 
-        // Bluetooth 0番
-
+        // Bluetooth 0番 
         m_bt_sel_0: m_bt_sel_0 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -31,7 +30,6 @@
         };
 
         // Bluetooth 1番
-
         m_bt_sel_1: m_bt_sel_1 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -39,7 +37,6 @@
         };
 
         // Bluetooth 2番
-
         m_bt_sel_2: m_bt_sel_2 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -47,7 +44,6 @@
         };
 
         // Bluetooth 3番
-
         m_bt_sel_3: m_bt_sel_3 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -55,7 +51,6 @@
         };
 
         // Bluetooth 4番
-
         m_bt_sel_4: m_bt_sel_4 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -81,20 +76,16 @@
             tapping-term-ms = <400>;             /* ここで時間を自由に調整（例：200ms） */
             quick-tap-ms = <200>;
             flavor = "tap-preferred";
-            bindings = <&mo>, <&kp>;
-
-            /* 1つ目の引数にレイヤー(&mo)、2つ目にキー入力(&kp)を指定 */
+            bindings = <&mo>, <&kp>;      /* 1つ目の引数にレイヤー(&mo)、2つ目にキー入力(&kp)を指定 */
         };
 
         my_mo: my_scroll_momentary {
             compatible = "zmk,behavior-hold-tap";
             label = "my_scroll_momentary";
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <200>; 
             flavor = "hold-preferred";
-            bindings = <&mo>, <&none>;
-
-            /* 1つ目の引数にレイヤー(mo)、2つ目に何もしない(none)を指定 */
+            bindings = <&mo>, <&none>;   /* 1つ目の引数にレイヤー(mo)、2つ目に何もしない(none)を指定 */
         };
 
         my_bt_tap_0: my_bt_tap_0 {
