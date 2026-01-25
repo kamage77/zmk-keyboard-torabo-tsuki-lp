@@ -88,6 +88,16 @@
             bindings = <&mo>, <&none>;   /* 1つ目の引数にレイヤー(mo)、2つ目に何もしない(none)を指定 */
         };
 
+        my_scroll_scaler: my_scroll_scaler {
+            compatible = "zmk,input-processor-scaler";
+            label = "my_scroll_scaler";
+            #input-processor-cells = <2>;
+            type = <INPUT_REL_WHEEL>;
+            // ここの数値を大きくすると速くなり、小さくすると遅くなります
+            multiplier = <1>; 
+            divider = <2>;    // 2で割る（＝半分の速度にする）
+        };
+
         my_bt_tap_0: my_bt_tap_0 {
             compatible = "zmk,behavior-hold-tap";
             label = "my_bluetooth_tap_0";
