@@ -88,14 +88,6 @@
             bindings = <&mo>, <&none>;   /* 1つ目の引数にレイヤー(mo)、2つ目に何もしない(none)を指定 */
         };
 
-        my_scroll_scaler: my_scroll_scaler {
-            compatible = "zmk,input-processor-scaler";
-            #input-processor-cells = <2>;
-            // どの信号をスクロールに変換するか指定（X軸を水平、Y軸を垂直ホイールに）
-            codes = <INPUT_REL_X INPUT_REL_Y>;
-            type = <INPUT_REL_WHEEL>;
-        };
-
         my_bt_tap_0: my_bt_tap_0 {
             compatible = "zmk,behavior-hold-tap";
             label = "my_bluetooth_tap_0";
