@@ -32,11 +32,18 @@
         compatible = "zmk,input-listener";
         device = <&trackball>; 
         input-processors = 
-            <&zip_xy_scaler 1 8>,            /* 1/8の速度 */
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
-            <&zip_temp_layer 1 1000>,        /* レイヤー番号 持続時間(ms) */
-            <&zip_xy_scaler 1 4>,            /* 1/4 結果的に1/2の速度 */
-//            <&zip_temp_layer 1 1000>,        /* レイヤー番号 持続時間(ms) */
-            <&zip_scroll_scaler 1 1>; 
-    };
+
+            /* --- レイヤー0 (通常時) の設定 --- */
+            /* 第1引数「2」：特定のレイヤーの時だけ有効にする */
+            /* 第2引数「0」：レイヤー0番を指定 */
+            <&zip_xy_scaler 1 2>, 
+
+            /* --- レイヤー1 (スクロール時) の設定 --- */
+            /* 1. まずXY移動をスクロール信号に変換する */
+            <&zip_scroll_mapper>, 
+            /* 2. そのスクロール信号を「レイヤー1」の時だけ有効にする */
+            /* 第1引数「2」：特定のレイヤーの時だけ有効にする */
+            /* 第2引数「1」：レイヤー1番を指定 */
+            <&zip_scroll_scaler 2 1>;
 };
