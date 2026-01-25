@@ -23,6 +23,7 @@
         };
 
         // Bluetooth 0番 
+
         m_bt_sel_0: m_bt_sel_0 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -30,6 +31,7 @@
         };
 
         // Bluetooth 1番
+
         m_bt_sel_1: m_bt_sel_1 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -37,6 +39,7 @@
         };
 
         // Bluetooth 2番
+
         m_bt_sel_2: m_bt_sel_2 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -44,6 +47,7 @@
         };
 
         // Bluetooth 3番
+
         m_bt_sel_3: m_bt_sel_3 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -51,6 +55,7 @@
         };
 
         // Bluetooth 4番
+
         m_bt_sel_4: m_bt_sel_4 {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -76,7 +81,8 @@
             tapping-term-ms = <400>;             /* ここで時間を自由に調整（例：200ms） */
             quick-tap-ms = <200>;
             flavor = "tap-preferred";
-            bindings = <&mo>, <&kp>;      /* 1つ目の引数にレイヤー(&mo)、2つ目にキー入力(&kp)を指定 */
+            bindings = <&mo>, <&kp>;
+      /* 1つ目の引数にレイヤー(&mo)、2つ目にキー入力(&kp)を指定 */
         };
 
         my_bt_tap_0: my_bt_tap_0 {
@@ -130,11 +136,11 @@
 
         layer_0 {
             bindings = <
-&kp ESC    &kp N1                 &kp N2    &kp N3    &kp N4        &kp N5                                      &kp N6       &kp N7  &kp N8     &kp N9               &kp N0                     &kp BSPC
-&kp TAB    &kp Q                  &kp W     &kp E     &kp R         &kp T                                       &kp Y        &kp U   &kp I      &kp O                &kp P                      &kp BSPC
-&kp CAPS   &my_ht LEFT_CONTROL A  &kp S     &kp D     &kp F         &kp G        &mkp LCLK     &mkp RCLK        &kp H        &kp J   &kp K      &kp L                &my_ht RIGHT_CONTROL SEMI  &kp SQT
-&kp LSHFT  &kp Z                  &kp X     &kp C     &kp V         &kp B        &kp LC(A)     &kp RET          &kp N        &kp M   &kp COMMA  &kp DOT              &kp SLASH                  &kp RSHFT
-&kp LCTRL  &kp LEFT_SHIFT         &kp LGUI  &kp LALT  &lt 2 RETURN  &lt 1 SPACE  &lt 3 DELETE  &lt 3 BACKSPACE  &lt 1 SPACE  &none   &kp RALT   &kp INTERNATIONAL_1  &kp RIGHT_SHIFT            &kp RCTRL
+&kp ESC    &kp N1                 &kp N2    &kp N3    &kp N4     &kp N5                                      &kp N6       &kp N7  &kp N8     &kp N9               &kp N0                     &kp BSPC
+&kp TAB    &kp Q                  &kp W     &kp E     &kp R      &kp T                                       &kp Y        &kp U   &kp I      &kp O                &kp P                      &kp BSPC
+&kp CAPS   &my_ht LEFT_CONTROL A  &kp S     &kp D     &kp F      &kp G        &mkp LCLK     &mkp RCLK        &kp H        &kp J   &kp K      &kp L                &my_ht RIGHT_CONTROL SEMI  &kp SQT
+&kp LSHFT  &kp Z                  &kp X     &kp C     &kp V      &kp B        &lt 2 RET     &lt 2 RET        &kp N        &kp M   &kp COMMA  &kp DOT              &kp SLASH                  &kp RSHFT
+&kp LCTRL  &kp LEFT_SHIFT         &kp LGUI  &kp LALT  &kp LC(A)  &lt 1 SPACE  &lt 3 DELETE  &lt 3 BACKSPACE  &lt 1 SPACE  &none   &kp RALT   &kp INTERNATIONAL_1  &kp RIGHT_SHIFT            &kp RCTRL
             >;
         };
 
