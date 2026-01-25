@@ -32,8 +32,6 @@
         compatible = "zmk,input-listener";
         device = <&trackball>; 
         input-processors = 
-            <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
-
             <&zip_xy_scaler 1 8>,            /* 1/8の速度 */
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
             <&zip_temp_layer 1 1000>,        /* レイヤー番号 持続時間(ms) */
