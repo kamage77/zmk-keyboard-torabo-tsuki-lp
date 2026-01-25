@@ -82,7 +82,8 @@
             quick-tap-ms = <200>;
             flavor = "tap-preferred";
             bindings = <&mo>, <&kp>;
-      /* 1つ目の引数にレイヤー(&mo)、2つ目にキー入力(&kp)を指定 */
+
+            /* 1つ目の引数にレイヤー(&mo)、2つ目にキー入力(&kp)を指定 */
         };
 
         my_bt_tap_0: my_bt_tap_0 {
@@ -148,7 +149,7 @@
             bindings = <
 &trans  &trans            &trans            &trans            &trans            &trans                            &trans          &trans        &trans          &trans           &trans           &trans
 &trans  &my_bt_tap_0 0 0  &my_bt_tap_1 0 0  &my_bt_tap_2 0 0  &my_bt_tap_3 0 0  &my_bt_tap_4 0 0                  &trans          &trans        &trans          &trans           &trans           &trans
-&trans  &trans            &trans            &mkp RCLK         &mkp LCLK         &trans            &trans  &trans  &trans          &mkp LCLK     &mkp RCLK       &trans           &trans           &trans
+&trans  &trans            &trans            &mkp RCLK         &mkp LCLK         &mkp LCLK         &trans  &trans  &mkp LCLK       &mkp LCLK     &mkp RCLK       &trans           &trans           &trans
 &trans  &kp LEFT_ALT      &trans            &trans            &trans            &trans            &trans  &trans  &kp LEFT_ARROW  &kp UP_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp RIGHT_ALT    &trans
 &trans  &kp LEFT_SHIFT    &trans            &trans            &trans            &trans            &trans  &trans  &trans          &trans        &trans          &trans           &kp RIGHT_SHIFT  &trans
             >;
