@@ -79,15 +79,6 @@
             bindings = <&mo>, <&kp>;      /* 1つ目の引数にレイヤー(&mo)、2つ目にキー入力(&kp)を指定 */
         };
 
-        my_mo: my_scroll_momentary {
-            compatible = "zmk,behavior-hold-tap";
-            label = "my_scroll_momentary";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>; 
-            flavor = "hold-preferred";
-            bindings = <&mo>, <&none>;   /* 1つ目の引数にレイヤー(mo)、2つ目に何もしない(none)を指定 */
-        };
-
         my_bt_tap_0: my_bt_tap_0 {
             compatible = "zmk,behavior-hold-tap";
             label = "my_bluetooth_tap_0";
