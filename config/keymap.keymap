@@ -90,7 +90,6 @@
 
         my_scroll_scaler: my_scroll_scaler {
             compatible = "zmk,input-processor-scaler";
-            label = "my_scroll_scaler";
             #input-processor-cells = <2>;
             // どの信号をスクロールに変換するか指定（X軸を水平、Y軸を垂直ホイールに）
             codes = <INPUT_REL_X INPUT_REL_Y>;
