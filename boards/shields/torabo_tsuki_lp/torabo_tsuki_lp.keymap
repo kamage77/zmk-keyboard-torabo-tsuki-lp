@@ -19,7 +19,7 @@
     zip_xy_scaler: zip_xy_scaler {
         compatible = "zmk,input-processor-scaler";
         #input-processor-cells = <2>;
-        type = <0x02>; /* REL (相対移動) */
+//        type = <0x02>; /* REL (相対移動) */
     };
 
     /* トラックボールの動作を監視するリスナー */
@@ -30,6 +30,6 @@
             <&zip_xy_scaler 1 2>,            /* 1/2の速度 */
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
 //            <&zip_temp_layer 1 1000>,        /* レイヤー番号 持続時間(ms) */
-            <&zip_scroll_scaler 0 0>; 
+            <&zip_scroll_scaler 0 10>; 
     };
 };
