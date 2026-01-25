@@ -2,35 +2,43 @@
 #include <input/processors.dtsi>
 
 / {
-    /* オートマウスレイヤーの設定 */
-    zip_temp_layer: zip_temp_layer {
-        compatible = "zmk,input-processor-temp-layer";
-        #input-processor-cells = <2>;
+    /* 1. XY移動をスクロールに変換する定義（type 0x02を追加） */
+    zip_scroll_mapper: zip_scroll_mapper {
+        compatible = "zmk,input-processor-code-mapper";
+        #input-processor-cells = <0>;
+        type = <0x02>;
+        map = <INPUT_REL_X INPUT_REL_HWHEEL>, <INPUT_REL_Y INPUT_REL_WHEEL>;
     };
 
-    /* スクロール変換用の設定（usageを削除した修正版） */
+    /* 2. スクロール用のスケーラー（速度調整用） */
     zip_scroll_scaler: zip_scroll_scaler {
         compatible = "zmk,input-processor-scaler";
         #input-processor-cells = <2>;
         type = <0x02>; 
     };
 
+    /* 3. 通常移動用のスケーラー */
     zip_xy_scaler: zip_xy_scaler {
         compatible = "zmk,input-processor-scaler";
         #input-processor-cells = <2>;
-        type = <0x02>; /* REL (相対移動) */
+        type = <0x02>;
     };
 
-    /* トラックボールの動作を監視するリスナー */
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>; 
         input-processors = 
-            <&zip_xy_scaler 1 2>,            /* 1/8の速度 */
+            /* 常に反転処理を行う */
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
-            <&zip_temp_layer 1 1000>,        /* レイヤー番号 持続時間(ms) */
-            <&zip_xy_scaler 1 4>,            /* 1/4 結果的に1/2の速度 */
-//            <&zip_temp_layer 1 1000>,        /* レイヤー番号 持続時間(ms) */
-            <&zip_scroll_scaler 1 1>; 
+
+            /* レイヤー0の時だけ、通常のカーソル移動を許可する (1/2倍速) */
+            <&zip_xy_scaler 2 0>, 
+
+            /* XY信号をスクロール信号に強制変換 */
+            <&zip_scroll_mapper>,
+
+            /* レイヤー1の時だけ、スクロールを許可する */
+            /* 第1引数 2 = レイヤー連動、第2引数 1 = レイヤー1 */
+            <&zip_scroll_scaler 2 1>; 
     };
 };
