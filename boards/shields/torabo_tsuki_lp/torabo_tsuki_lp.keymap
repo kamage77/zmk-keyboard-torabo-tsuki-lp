@@ -30,6 +30,6 @@
             <&zip_xy_scaler 1 2>,            /* 1/2の速度 */
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
 //            <&zip_temp_layer 1 1000>,        /* レイヤー番号 持続時間(ms) */
-            <&my_scroll_scaler 1 4>; 
+            <&zip_scroll_scaler 1 1>; 
     };
 };
