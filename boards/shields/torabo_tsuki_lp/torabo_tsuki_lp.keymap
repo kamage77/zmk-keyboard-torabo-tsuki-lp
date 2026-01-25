@@ -1,15 +1,20 @@
-
 #include "../../../config/keymap.keymap"
 #include <input/processors.dtsi>
 
 / {
-    /* オートマウスレイヤーの設定 */
+    /* --- 追加：移動をスクロールに変換する定義 --- */
+    zip_scroll_mapper: zip_scroll_mapper {
+        compatible = "zmk,input-processor-code-mapper";
+        #input-processor-cells = <0>;
+        /* X軸を水平ホイールに、Y軸を垂直ホイールに変換 */
+        map = <INPUT_REL_X INPUT_REL_HWHEEL>, <INPUT_REL_Y INPUT_REL_WHEEL>;
+    };
+
     zip_temp_layer: zip_temp_layer {
         compatible = "zmk,input-processor-temp-layer";
         #input-processor-cells = <2>;
     };
 
-    /* スクロール変換用の設定（usageを削除した修正版） */
     zip_scroll_scaler: zip_scroll_scaler {
         compatible = "zmk,input-processor-scaler";
         #input-processor-cells = <2>;
@@ -19,17 +24,19 @@
     zip_xy_scaler: zip_xy_scaler {
         compatible = "zmk,input-processor-scaler";
         #input-processor-cells = <2>;
-//        type = <0x02>; /* REL (相対移動) */
     };
 
-    /* トラックボールの動作を監視するリスナー */
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>; 
         input-processors = 
-            <&zip_xy_scaler 1 2>,            /* 1/2の速度 */
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
-//            <&zip_temp_layer 1 1000>,        /* レイヤー番号 持続時間(ms) */
-            <&zip_scroll_scaler 0 10>; 
+            <&zip_xy_scaler 1 2>,
+            /* --- ここで変換と速度調整を行う --- */
+            /* 1. まずXY移動をスクロール信号に変える */
+            <&zip_scroll_mapper>, 
+            /* 2. 次に、そのスクロール信号を「レイヤー1」の時だけ有効にする */
+            /* 引数 <2 1> : 多くの環境で 2はレイヤー連動、1はレイヤー番号を指します */
+            <&zip_scroll_scaler 2 1>; 
     };
 };
