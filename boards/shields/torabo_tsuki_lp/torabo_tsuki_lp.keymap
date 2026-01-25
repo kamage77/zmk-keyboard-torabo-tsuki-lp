@@ -6,6 +6,8 @@
     zip_scroll_mapper: zip_scroll_mapper {
         compatible = "zmk,input-processor-code-mapper";
         #input-processor-cells = <0>;
+        /* type = <0x02> (REL) を追記 */
+        type = <0x02>;
         /* X軸を水平ホイールに、Y軸を垂直ホイールに変換 */
         map = <INPUT_REL_X INPUT_REL_HWHEEL>, <INPUT_REL_Y INPUT_REL_WHEEL>;
     };
