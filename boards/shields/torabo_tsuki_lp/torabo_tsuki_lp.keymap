@@ -26,8 +26,7 @@
             <&zip_xy_scaler 2 0>, 
 
             /* レイヤー1：ここを「スクロールへの変換」として機能させる */
-            /* 多くの実装では、引数を増やす、あるいは特定の数値を渡すことで変換します */
-            /* 下記の <2 1> でダメなら、別の数値を試します */
+            <&zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)>,
             <&zip_scroll_scaler 2 1>;
     };
 };
