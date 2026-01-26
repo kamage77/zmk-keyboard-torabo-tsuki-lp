@@ -2,31 +2,34 @@
 #include <input/processors.dtsi>
 
 / {
-    /* 通常移動用 */
+    /* 1. 通常移動用 (XY) */
     zip_xy_scaler: zip_xy_scaler {
-        compatible = "zmk,input-processor-scaler";
-        #input-processor-cells = <2>;
-        type = <0x02>; // REL (移動)
-    };
-
-    /* スクロール用 */
-    zip_scroll_scaler: zip_scroll_scaler {
         compatible = "zmk,input-processor-scaler";
         #input-processor-cells = <2>;
         type = <0x02>; // REL
     };
+
+    /* 2. スクロール用 (Wheel) */
+    /* マッパーを通さないため、これが直接「スクロール信号」として振る舞うよう期待します */
+    zip_scroll_scaler: zip_scroll_scaler {
+        compatible = "zmk,input-processor-scaler";
+        #input-processor-cells = <2>;
+        type = <0x02>;
+    };
+
     /* トラックボールの動作を監視するリスナー */
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>; 
         input-processors = 
+            /* 共通：反転のみ（非常に軽量な処理） */
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
 
-            /* レイヤー0：移動 (引数 2 0 は「レイヤー連動」を意味する) */
+            /* レイヤー0の時：移動量を 1/2 にして「マウス移動」として出力 */
             <&zip_xy_scaler 2 0>, 
 
-            /* レイヤー1：ここを「スクロールへの変換」として機能させる */
-            <&zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)>,
+            /* レイヤー1の時：移動量を「スクロール」として出力させる試み */
+            /* 変換プロセッサを通さないので、これでフリーズはしないはずです */
             <&zip_scroll_scaler 2 1>;
     };
 };
