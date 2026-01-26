@@ -2,19 +2,17 @@
 #include <input/processors.dtsi>
 
 / {
-    /* 1. 通常移動用 (XY) */
-    zip_xy_scaler: zip_xy_scaler {
-        compatible = "zmk,input-processor-scaler";
-        #input-processor-cells = <2>;
-        type = <0x02>; // REL
-    };
-
-    /* 2. スクロール用 (Wheel) */
-    /* マッパーを通さないため、これが直接「スクロール信号」として振る舞うよう期待します */
+    /* スクロール変換用の設定（usageを削除した修正版） */
     zip_scroll_scaler: zip_scroll_scaler {
         compatible = "zmk,input-processor-scaler";
         #input-processor-cells = <2>;
-        type = <0x02>;
+        type = <0x02>; 
+    };
+
+    zip_xy_scaler: zip_xy_scaler {
+        compatible = "zmk,input-processor-scaler";
+        #input-processor-cells = <2>;
+        type = <0x02>; /* REL (相対移動) */
     };
 
     /* トラックボールの動作を監視するリスナー */
@@ -22,14 +20,9 @@
         compatible = "zmk,input-listener";
         device = <&trackball>; 
         input-processors = 
-            /* 共通：反転のみ（非常に軽量な処理） */
+            <&zip_xy_scaler 1 2>,            /* 1/8の速度 */
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
-
-            /* レイヤー0の時：移動量を 1/2 にして「マウス移動」として出力 */
-            <&zip_xy_scaler 2 0>, 
-
-            /* レイヤー1の時：移動量を「スクロール」として出力させる試み */
-            /* 変換プロセッサを通さないので、これでフリーズはしないはずです */
-            <&zip_scroll_scaler 2 1>;
+            <&zip_xy_scaler 1 4>,            /* 1/4 結果的に1/2の速度 */
+            <&zip_scroll_scaler 1 1>; 
     };
 };
