@@ -147,11 +147,11 @@
 
         layer_1 {
             bindings = <
-&trans  &trans            &trans            &trans            &trans            &trans                                         &trans           &trans           &trans            &trans            &trans           &trans
-&trans  &my_bt_tap_0 0 0  &my_bt_tap_1 0 0  &my_bt_tap_2 0 0  &my_bt_tap_3 0 0  &my_bt_tap_4 0 0                               &kp LEFT_ARROW   &kp UP_ARROW     &kp DOWN_ARROW    &kp RIGHT_ARROW   &trans           &trans
-&trans  &trans            &trans            &mkp RCLK         &mkp LCLK         &mkp LCLK         &trans  &trans               &mkp LCLK        &mkp LCLK        &mkp RCLK         &trans            &trans           &trans
-&trans  &kp LEFT_ALT      &msc MOVE_X(-20)  &msc MOVE_Y(-20)  &msc MOVE_Y(20)   &msc MOVE_X(20)   &trans  &kp LA(KP_NUMBER_3)  &msc MOVE_X(20)  &msc MOVE_Y(20)  &msc MOVE_Y(-20)  &msc MOVE_X(-20)  &kp RIGHT_ALT    &trans
-&trans  &kp LEFT_SHIFT    &trans            &trans            &trans            &trans            &trans  &trans               &trans           &trans           &trans            &trans            &kp RIGHT_SHIFT  &trans
+&trans  &trans            &trans            &trans            &trans            &trans                                         &trans            &trans           &trans            &trans           &trans           &trans
+&trans  &my_bt_tap_0 0 0  &my_bt_tap_1 0 0  &my_bt_tap_2 0 0  &my_bt_tap_3 0 0  &my_bt_tap_4 0 0                               &kp LEFT_ARROW    &kp UP_ARROW     &kp DOWN_ARROW    &kp RIGHT_ARROW  &trans           &trans
+&trans  &trans            &trans            &mkp RCLK         &mkp LCLK         &mkp LCLK         &trans  &trans               &mkp LCLK         &mkp LCLK        &mkp RCLK         &trans           &trans           &trans
+&trans  &kp LEFT_ALT      &msc MOVE_X(-20)  &msc MOVE_Y(-20)  &msc MOVE_Y(20)   &msc MOVE_X(20)   &trans  &kp LA(KP_NUMBER_3)  &msc MOVE_X(-20)  &msc MOVE_Y(20)  &msc MOVE_Y(-20)  &msc MOVE_X(20)  &kp RIGHT_ALT    &trans
+&trans  &kp LEFT_SHIFT    &trans            &trans            &trans            &trans            &trans  &trans               &trans            &trans           &trans            &trans           &kp RIGHT_SHIFT  &trans
             >;
         };
 
