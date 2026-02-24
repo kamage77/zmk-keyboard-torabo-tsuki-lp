@@ -5,17 +5,6 @@
 #include <dt-bindings/zmk/pointing.h>
 
 
-/* 既存のリスナー設定を上書きして有効化 */
-&pointing_listener {
-    status = "okay"; // これで「disabled」を解除します
-    device = <&trackball_0>;
-    input-processors = 
-        /* 軸の反転（上下左右が逆ならここを調整） */
-        <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
-        /* 速度調整（1 2 は 1/2倍速） */
-        <&zip_xy_scaler 1 2>; 
-};
-
 / {
     combos {
         compatible = "zmk,combos";
