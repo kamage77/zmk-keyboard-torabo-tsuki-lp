@@ -14,16 +14,19 @@
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 19 GPIO_ACTIVE_LOW>;
         power-gpios = <&gpio0 8 (GPIO_ACTIVE_HIGH | NRF_GPIO_DRIVE_H0H1)>;
-
-        input-processors = 
-            <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
-            <&zip_xy_scaler 1 2>;
     };
 };
 
 / {
     trackball_listener {
         compatible = "zmk,input-listener";
+        /* センサーのラベル名を指定 */
         device = <&pointing_device>;
+        status = "okay";
+
+        /* 変換処理はここで行う */
+        input-processors = 
+            <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
+            <&zip_xy_scaler 1 2>; 
     };
 };
