@@ -10,7 +10,7 @@
     };
 
     /* トラックボールの動作を監視するリスナー */
-    trackball_listener {
+    pointing_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>; 
         input-processors = 
