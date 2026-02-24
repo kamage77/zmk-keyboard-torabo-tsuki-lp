@@ -19,9 +19,7 @@
     /* 判明したパス /spi0/pointing_device@0 を直接指定します */
     my_trackball_listener {
         compatible = "zmk,input-listener";
-        device = <&{/soc/peripheral@40000000/spi@3000/pointing_device@0}>; 
-        /* もし上記が長すぎてエラーになる場合は、こちらを試してください： */
-        /* device = <&pointing_device>; */
+        device = <&pointing_device>; 
 
         status = "okay";
         input-processors = 
