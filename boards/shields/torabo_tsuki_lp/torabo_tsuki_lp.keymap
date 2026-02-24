@@ -1,20 +1,2 @@
 
 #include "../../../config/keymap.keymap"
-#include <input/processors.dtsi>
-
-/ {
-    zip_xy_scaler: zip_xy_scaler {
-        compatible = "zmk,input-processor-scaler";
-        #input-processor-cells = <2>;
-        type = <0x02>; /* REL (相対移動) */
-    };
-
-    /* トラックボールの動作を監視するリスナー */
-    pointing_listener {
-        compatible = "zmk,input-listener";
-        device = <&pointing_device>; 
-        input-processors = 
-            <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
-            <&zip_xy_scaler 1 2>; 
-    };
-};
