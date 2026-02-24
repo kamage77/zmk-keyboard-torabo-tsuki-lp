@@ -18,7 +18,7 @@
     /* トラックボールの設定（最新の &pointing_device を使用） */
     trackball_listener {
         compatible = "zmk,input-listener";
-        device = <&pointing_device>; 
+        device = <&{/pointing_device}>; 
         input-processors = 
             /* 1. 軸の反転（上下左右が逆ならここを調整） */
             <&zip_xy_transform (INPUT_TRANSFORM_X_INVERT | INPUT_TRANSFORM_Y_INVERT)>,
